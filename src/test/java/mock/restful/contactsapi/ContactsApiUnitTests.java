@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -31,7 +32,6 @@ class ContactsApiUnitTests {
 	}
 
 	@Test
-	@Order(1)
 	public void testGetExistContactById() {
 		String id = "22222";
 
@@ -40,12 +40,35 @@ class ContactsApiUnitTests {
 	}
 
 	@Test
-	@Order(2)
 	public void testGetNotExistContactById() {
 		String id = "abcxyz";
 
 		Contact contact = contactService.findById(id);
 		Assertions.assertNull(contact);
+	}
+
+	@Test
+	public void testGetExistedContactByCompanyIdWithSuccess() {
+		String companyId = "123";
+
+		List<Contact> contacts = contactService.findByCompanyId(companyId);
+		Assertions.assertNotNull(contacts);
+		Assertions.assertNotEquals(0, contacts.size());
+	}
+
+	@Test
+	public void testGetNotExistedContactByCompanyIdWithSuccess() {
+		String companyId = "notExist";
+
+		List<Contact> contacts = contactService.findByCompanyId(companyId);
+		Assertions.assertNotNull(contacts);
+		Assertions.assertEquals(0, contacts.size());
+	}
+
+	@Test
+	public void testGetContactWithSuccess() {
+		List<Contact> contacts = contactService.find();
+		Assertions.assertNotNull(contacts);
 	}
 
 	@Test
