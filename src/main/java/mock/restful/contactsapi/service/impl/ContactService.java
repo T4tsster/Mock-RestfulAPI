@@ -24,7 +24,7 @@ public class ContactService implements IContactService {
     private IDatabase database;
 
     @Override
-    public void createContactFactory() {
+    public void createFactory() {
         if (factory == null)
             factory = new ContactFactory();
     }
@@ -56,9 +56,9 @@ public class ContactService implements IContactService {
         if (database == null)
             database = new JsonStorage();
 
-            JSONObject data = database.getDB();
-            data.put("contacts", contactList);
-            database.saveDB(data);
+        JSONObject data = database.getDB();
+        data.put("contacts", contactList);
+        database.saveDB(data);
     }
 
     @Override
@@ -112,7 +112,7 @@ public class ContactService implements IContactService {
 
     @Override
     public Contact create(JSONObject jsonContact) {
-        createContactFactory();
+        createFactory();
 
         Contact contact = factory.create((String) jsonContact.get("id"));
         setContactValues(jsonContact, contact);

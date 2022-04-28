@@ -1,0 +1,28 @@
+{
+	"contacts": [
+		{
+			"id": "11111",
+			"firstName": "Tom",
+			"lastName": "Smith",
+			"email": "tom.smith@example.com",
+			"dateAdded": "2021-01-03",
+			"companyId": "123"
+		},
+		{
+			"id": "22222",
+			"firstName": "Suki",
+			"lastName": "Patel",
+			"email": "spatel@example.com",
+			"dateAdded": "2020-11-12",
+			"companyId": "123"
+		},
+		{
+			"id": "33333",
+			"firstName": "Lexine",
+			"lastName": "Barnfield",
+			"email": "barnfield8@example.com",
+			"dateAdded": "2021-01-03",
+			"companyId": "234"
+		}
+	]
+}

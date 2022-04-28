@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IContactService {
 
-    void createContactFactory();
+    void createFactory();
 
     List<Contact> getContactList();
 

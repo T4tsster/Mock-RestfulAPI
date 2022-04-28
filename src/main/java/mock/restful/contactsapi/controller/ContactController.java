@@ -79,7 +79,6 @@ public class ContactController {
      * 422 - Unprocessable entity: Contact ID is already existed in database, can't add new
      * 500 - Internal Server Error
      */
-
     @PostMapping
     @ResponseBody
     public ResponseEntity<Contact> create(@RequestBody String info) {
